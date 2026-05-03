@@ -1,7 +1,6 @@
 baseURL = "https://mundart.guide/"
 locale = "de-CH"
 title = "Mund&Art"
-theme = ""
 
 [params]
   description = "Persönlicher Restaurantführer — eine Stimme, klare Haltung."
