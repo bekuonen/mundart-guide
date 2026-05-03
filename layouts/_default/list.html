@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div class="container">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-desc">{{ . }}</div>{{ end }}
+  </header>
+  <div class="restaurant-grid">
+    {{ range .Pages }}
+    <article class="restaurant-card">
+      {{ if .Params.bild }}
+      <div class="card-image">
+        <a href="{{ .RelPermalink }}"><img src="{{ .Params.bild }}" alt="{{ .Title }}"></a>
+      </div>
+      {{ end }}
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-kategorie">{{ .Params.kategorie }}</span>
+          {{ if .Params.rating_gesamt }}
+          <span class="card-rating">{{ .Params.rating_gesamt }}/10</span>
+          {{ end }}
+        </div>
+        <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="card-ort">{{ .Params.ort }}{{ if .Params.kanton }}, {{ .Params.kanton }}{{ end }}</p>
+        {{ with .Params.preiskategorie }}<p class="card-preis">{{ . }}</p>{{ end }}
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

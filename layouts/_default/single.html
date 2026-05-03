@@ -1,0 +1,70 @@
+{{ define "main" }}
+<article class="restaurant-single">
+  {{ if .Params.bild }}
+  <div class="single-hero">
+    <img src="{{ .Params.bild }}" alt="{{ .Title }}">
+  </div>
+  {{ end }}
+  <div class="container">
+    <header class="single-header">
+      <div class="single-meta-top">
+        <span class="single-kategorie">{{ .Params.kategorie }}</span>
+        {{ with .Params.besuchsdatum }}<span class="single-datum">Besuch: {{ . }}</span>{{ end }}
+      </div>
+      <h1 class="single-title">{{ .Title }}</h1>
+      <p class="single-adresse">{{ .Params.ort }}{{ if .Params.kanton }}, {{ .Params.kanton }}{{ end }}{{ if .Params.adresse }} · {{ .Params.adresse }}{{ end }}</p>
+    </header>
+
+    {{ if or .Params.rating_kueche .Params.rating_service .Params.rating_atmosphaere .Params.rating_wert }}
+    <div class="rating-block">
+      {{ if .Params.rating_gesamt }}
+      <div class="rating-gesamt">
+        <span class="rating-zahl">{{ .Params.rating_gesamt }}</span>
+        <span class="rating-max">/10</span>
+      </div>
+      {{ end }}
+      <div class="rating-details">
+        {{ if .Params.rating_kueche }}
+        <div class="rating-row">
+          <span class="rating-label">Küche</span>
+          <div class="rating-bar"><div class="rating-fill" style="width:{{ mul .Params.rating_kueche 10 }}%"></div></div>
+          <span class="rating-val">{{ .Params.rating_kueche }}</span>
+        </div>
+        {{ end }}
+        {{ if .Params.rating_service }}
+        <div class="rating-row">
+          <span class="rating-label">Service</span>
+          <div class="rating-bar"><div class="rating-fill" style="width:{{ mul .Params.rating_service 10 }}%"></div></div>
+          <span class="rating-val">{{ .Params.rating_service }}</span>
+        </div>
+        {{ end }}
+        {{ if .Params.rating_atmosphaere }}
+        <div class="rating-row">
+          <span class="rating-label">Atmosphäre</span>
+          <div class="rating-bar"><div class="rating-fill" style="width:{{ mul .Params.rating_atmosphaere 10 }}%"></div></div>
+          <span class="rating-val">{{ .Params.rating_atmosphaere }}</span>
+        </div>
+        {{ end }}
+        {{ if .Params.rating_wert }}
+        <div class="rating-row">
+          <span class="rating-label">Wert</span>
+          <div class="rating-bar"><div class="rating-fill" style="width:{{ mul .Params.rating_wert 10 }}%"></div></div>
+          <span class="rating-val">{{ .Params.rating_wert }}</span>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+    <div class="single-content">
+      {{ .Content }}
+    </div>
+
+    <div class="single-facts">
+      {{ with .Params.preis_pro_person }}<p><strong>Preis p.P.:</strong> CHF {{ . }}</p>{{ end }}
+      {{ with .Params.preiskategorie }}<p><strong>Kategorie:</strong> {{ . }}</p>{{ end }}
+      {{ with .Params.website }}<p><strong>Web:</strong> <a href="{{ . }}" target="_blank">{{ . }}</a></p>{{ end }}
+    </div>
+  </div>
+</article>
+{{ end }}

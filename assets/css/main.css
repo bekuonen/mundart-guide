@@ -1,0 +1,346 @@
+/* ============================================
+   Mund&Art — Swiss Cut Design System
+   ============================================ */
+
+:root {
+  --red: #D42B2B;
+  --black: #111111;
+  --grey-dark: #333333;
+  --grey-mid: #666666;
+  --grey-light: #EEEEEE;
+  --white: #FFFFFF;
+  --font: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --max-width: 1180px;
+  --radius: 2px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font);
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--red); }
+img { max-width: 100%; height: auto; display: block; }
+
+/* === Container === */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === Header === */
+.site-header {
+  border-bottom: 2px solid var(--black);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 100;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.site-logo .amp { color: var(--red); }
+.site-nav { display: flex; gap: 32px; }
+.site-nav a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.site-nav a:hover { color: var(--red); }
+
+/* === Footer === */
+.site-footer {
+  border-top: 2px solid var(--black);
+  padding: 40px 0;
+  margin-top: 80px;
+}
+.footer-claim {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--grey-mid);
+  margin-bottom: 4px;
+}
+.footer-meta {
+  font-size: 0.75rem;
+  color: var(--grey-mid);
+}
+
+/* === Hero === */
+.hero {
+  padding: 80px 0 64px;
+  border-bottom: 1px solid var(--grey-light);
+}
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 24px;
+}
+.hero-title .amp { color: var(--red); }
+.hero-claim {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: var(--grey-dark);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.hero-sub {
+  font-size: 0.9375rem;
+  color: var(--grey-mid);
+  max-width: 560px;
+}
+
+/* === Section === */
+.recent-section { padding: 64px 0; }
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  margin-bottom: 32px;
+}
+.btn-alle {
+  display: inline-block;
+  margin-top: 40px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 2px;
+}
+.btn-alle:hover { color: var(--red); border-color: var(--red); }
+
+/* === Restaurant Grid === */
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2px;
+}
+
+/* === Restaurant Card === */
+.restaurant-card {
+  background: var(--white);
+  border: 1px solid var(--grey-light);
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+.restaurant-card:hover { border-color: var(--black); }
+.card-image {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--grey-light);
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.restaurant-card:hover .card-image img { transform: scale(1.03); }
+.card-body { padding: 20px; }
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.card-kategorie {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--grey-mid);
+}
+.card-rating {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--red);
+}
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.card-title a:hover { color: var(--red); }
+.card-ort {
+  font-size: 0.8125rem;
+  color: var(--grey-mid);
+}
+.card-preis {
+  font-size: 0.75rem;
+  color: var(--grey-mid);
+  margin-top: 4px;
+}
+
+/* === Page Header === */
+.page-header {
+  padding: 56px 0 40px;
+  border-bottom: 1px solid var(--grey-light);
+  margin-bottom: 48px;
+}
+.page-header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.page-desc { margin-top: 16px; color: var(--grey-mid); max-width: 600px; }
+
+/* === Single Restaurant === */
+.single-hero {
+  width: 100%;
+  max-height: 520px;
+  overflow: hidden;
+  background: var(--grey-light);
+}
+.single-hero img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+.single-header {
+  padding: 40px 0 32px;
+  border-bottom: 1px solid var(--grey-light);
+  margin-bottom: 40px;
+}
+.single-meta-top {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.single-kategorie {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--red);
+}
+.single-datum {
+  font-size: 0.8125rem;
+  color: var(--grey-mid);
+}
+.single-title {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.single-adresse {
+  font-size: 0.9rem;
+  color: var(--grey-mid);
+}
+
+/* === Rating Block === */
+.rating-block {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--grey-light);
+  margin-bottom: 40px;
+}
+.rating-gesamt {
+  flex-shrink: 0;
+  line-height: 1;
+}
+.rating-zahl {
+  font-size: 4rem;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  color: var(--black);
+}
+.rating-max {
+  font-size: 1.5rem;
+  color: var(--grey-mid);
+  font-weight: 400;
+}
+.rating-details { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.rating-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 32px;
+  align-items: center;
+  gap: 12px;
+}
+.rating-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--grey-dark);
+}
+.rating-bar {
+  height: 4px;
+  background: var(--grey-light);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rating-fill {
+  height: 100%;
+  background: var(--red);
+  border-radius: 2px;
+}
+.rating-val {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--grey-dark);
+  text-align: right;
+}
+
+/* === Content === */
+.single-content {
+  max-width: 720px;
+  margin-bottom: 40px;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--grey-dark);
+}
+.single-content p { margin-bottom: 1.25em; }
+.single-content h2 { font-size: 1.25rem; font-weight: 600; margin: 2em 0 0.75em; letter-spacing: -0.02em; }
+
+/* === Facts === */
+.single-facts {
+  border-top: 1px solid var(--grey-light);
+  padding-top: 24px;
+  font-size: 0.9rem;
+  color: var(--grey-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 64px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .site-nav { gap: 20px; }
+  .restaurant-grid { grid-template-columns: 1fr; }
+  .rating-block { flex-direction: column; gap: 24px; }
+  .rating-row { grid-template-columns: 80px 1fr 28px; }
+  .single-hero img { height: 240px; }
+}
+@media (max-width: 480px) {
+  .site-nav a { font-size: 0.75rem; }
+  .hero { padding: 48px 0 40px; }
+}

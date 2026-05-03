@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title">Mund<span class="amp">&amp;</span>Art</h1>
+    <p class="hero-claim">Persönlicher Restaurantführer —<br>eine Stimme, klare Haltung.</p>
+    <p class="hero-sub">Vom Imbiss zur Sternegastronomie. Bewertet nach Küche, Service, Atmosphäre und Wert.</p>
+  </div>
+</section>
+
+{{ $restaurants := where .Site.RegularPages "Type" "restaurants" }}
+{{ if $restaurants }}
+<section class="recent-section">
+  <div class="container">
+    <h2 class="section-title">Zuletzt besucht</h2>
+    <div class="restaurant-grid">
+      {{ range first 6 (sort $restaurants ".Date" "desc") }}
+      <article class="restaurant-card">
+        {{ if .Params.bild }}
+        <div class="card-image">
+          <a href="{{ .RelPermalink }}"><img src="{{ .Params.bild }}" alt="{{ .Title }}"></a>
+        </div>
+        {{ end }}
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-kategorie">{{ .Params.kategorie }}</span>
+            {{ if .Params.rating_gesamt }}
+            <span class="card-rating">{{ .Params.rating_gesamt }}/10</span>
+            {{ end }}
+          </div>
+          <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p class="card-ort">{{ .Params.ort }}{{ if .Params.kanton }}, {{ .Params.kanton }}{{ end }}</p>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+    <a href="/restaurants/" class="btn-alle">Alle Restaurants →</a>
+  </div>
+</section>
+{{ end }}
+{{ end }}
