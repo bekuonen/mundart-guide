@@ -1,0 +1,39 @@
+backend:
+  name: github
+  repo: bekuonen/mundart-guide
+  branch: main
+  base_url: https://hugo-cms-auth.bekuonen.workers.dev
+
+media_folder: static/img
+public_folder: /img
+
+locale: de
+
+collections:
+
+  - name: restaurants
+    label: Restaurants
+    label_singular: Restaurant
+    folder: content/restaurants
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Name, name: title, widget: string }
+      - { label: Ort, name: ort, widget: string }
+      - label: Kanton
+        name: kanton
+        widget: select
+        options: [LU, VS, BE, ZH, TI, GR, SG, AG, BS, BL, FR, GE, GL, JU, NE, NW, OW, SH, SO, SZ, TG, UR, VD, ZG, AR, AI]
+      - label: Kategorie
+        name: kategorie
+        widget: select
+        options: [Imbiss, Beiz, Restaurant, Fine Dining, Bar, Café]
+      - { label: Küche (1–10), name: rating_kueche, widget: number, value_type: int, min: 1, max: 10 }
+      - { label: Service (1–10), name: rating_service, widget: number, value_type: int, min: 1, max: 10 }
+      - { label: Atmosphäre (1–10), name: rating_atmosphaere, widget: number, value_type: int, min: 1, max: 10 }
+      - { label: Wert (1–10), name: rating_wert, widget: number, value_type: int, min: 1, max: 10 }
+      - { label: Gesamt (Schnitt), name: rating_gesamt, widget: number, value_type: float, required: false }
+      - { label: Datum Besuch, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD.MM.YYYY" }
+      - { label: Hero-Bild, name: hero_bild, widget: image, required: false }
+      - { label: Notizen, name: body, widget: markdown, required: false }
+      - { label: Entwurf, name: draft, widget: boolean, default: false }
