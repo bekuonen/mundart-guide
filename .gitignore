@@ -2,3 +2,8 @@ public/
 resources/
 .hugo_build.lock
 .DS_Store
+
+# Airtable Pipeline
+.env
+data/
+content/restaurants/*.md

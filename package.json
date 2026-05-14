@@ -1,0 +1,13 @@
+{
+  "name": "mundartguide-hugo",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch-airtable.mjs",
+    "build": "npm run fetch && hugo",
+    "dev": "npm run fetch && hugo server --disableFastRender"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
