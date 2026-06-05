@@ -2,7 +2,7 @@ backend:
   name: github
   repo: bekuonen/mundart-guide
   branch: main
-  base_url: https://hugo-cms-auth.bekuonen.workers.dev
+  base_url: https://sveltia-auth.bekuonen.workers.dev
 
 media_folder: static/img
 public_folder: /img
