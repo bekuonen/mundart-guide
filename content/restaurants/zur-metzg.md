@@ -3,7 +3,7 @@ title: Zur Metzg
 ort: Luzern
 kanton: VS
 kategorie: Imbiss
-rating_kueche: 8
+rating_kueche: 10
 rating_service: 7
 rating_atmosphaere: 9
 rating_wert: 7
