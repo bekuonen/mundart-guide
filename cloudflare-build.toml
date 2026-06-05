@@ -1,0 +1,24 @@
+# Cloudflare Pages Build-Konfiguration — Projekt «mundart-guide» (M1-Standardisierung 2026-06-05)
+#
+# Diese Datei ist die im Repo versionierte SOLL-Definition des Builds.
+# Cloudflare Pages liest sie NICHT automatisch — die Werte müssen im
+# Dashboard eingetragen sein (Pages → mundart-guide → Settings → Builds):
+#
+#   Build command:        npm run fetch && hugo
+#   Build output:         public
+#   Root directory:       (leer lassen)
+#   Environment Variable: HUGO_VERSION = 0.161.1
+#
+# Zusätzlich benötigt der Build den Airtable-Token (read-only PAT) als
+# Environment Variable im Dashboard — NIEMALS hier oder sonstwo im Repo!
+# Die Airtable-Pipeline (scripts/fetch-airtable.mjs) bleibt unverändert;
+# Node-Anforderung gemäss package.json engines: >=18.
+#
+# Bei Abweichung zwischen Dashboard und dieser Datei gilt diese Datei als Soll.
+
+[build]
+  command = "npm run fetch && hugo"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.161.1"
